@@ -1,0 +1,19 @@
+{
+  "name": "miniprogram",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "@vant/weapp": "^1.10.23",
+    "dayjs": "^1.11.9"
+  },
+  "devDependencies": {
+    "miniprogram-api-typings": "^3.10.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

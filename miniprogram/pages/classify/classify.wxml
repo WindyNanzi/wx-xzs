@@ -1,0 +1,24 @@
+<!--pages/classify/classify.wxml-->
+<xzs-header />
+
+<view class="banner">
+  <image class="pic" src="/images/teaBanner.jpg" mode="aspectFill"/>
+</view>
+
+<van-tabs
+  border
+  animated
+  active="{{ navActive }}"
+  color="{{ themeColor }}"
+  title-active-color="{{ themeColor }}"
+  bind:change="onTabChange"
+>
+  <van-tab
+    wx:for="{{ navs }}"
+    wx:key="_id"
+    title="{{ item.classname }}"
+    name="{{ item._id }}"
+  >
+  
+  </van-tab>
+</van-tabs>
