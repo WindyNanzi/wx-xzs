@@ -1,0 +1,71 @@
+.banner {
+  padding: 30rpx 0;
+
+  swiper {
+    height: 460rpx;
+    
+    swiper-item {
+      image {
+        width: 690rpx;
+        height: 460rpx;
+        border-radius: 10rpx;
+      }
+    }
+  }
+}
+
+.scroll-nav {
+  padding: 30rpx 0;
+
+  scroll-view {
+    white-space: nowrap;
+
+    .item {
+      display: inline-block;
+      padding: 0 25rpx;
+    }
+  }
+  
+  .picbox {
+    height: 105rpx;
+    width: 105rpx;
+
+    image {
+      height: 100%;
+      width: 100%;
+    }
+  }
+
+  .text {
+    font-size: 34rpx;
+    color: var(--globalColor);
+    text-align: center;
+  }
+}
+
+
+.about {
+  padding: 50rpx 30rpx 80rpx;
+  background-image: url(https://article.biliimg.com/bfs/article/af392da9aa17d0516e54ad76a87e13666b8c9eb5.jpg);
+
+  .row {
+    line-height: 1.6;
+    text-indent: 2em;
+    font-size: 32rpx;
+    padding: 20rpx 0;
+    border-bottom: 1px dashed var(--themeColor);
+    color: var(--focusColor);
+
+    &:first-child {
+      padding-top:  0;
+    }
+
+    &:last-child {
+      border: none;
+    }
+  }
+}
+
+.news {
+  padding: 50rpx 30rpx;
+}

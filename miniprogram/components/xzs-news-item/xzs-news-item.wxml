@@ -1,0 +1,26 @@
+<!--components/xzs-news-item/xzs-news-item.wxml-->
+<view class="new-item" capture-bind:tap="gotoDetail">
+  <view class="picbox">
+    <image class="pic" src="{{ img }}" mode="aspectFill"/>
+  </view>
+  <view class="desc">
+    <view class="title">
+      {{ title }}
+    </view>
+
+    <view class="infos">
+      <view class="info">
+        <van-icon name="clock-o" />
+        <text>{{ time }}</text>
+      </view>
+      <view class="info">
+        <van-icon name="eye-o" />
+        <text>{{ viewCount }}</text>
+      </view>
+      <view class="info">
+        <van-icon name="contact" />
+        <text>{{ author }}</text>
+      </view>
+    </view>
+  </view>
+</view>

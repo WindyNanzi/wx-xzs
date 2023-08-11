@@ -1,0 +1,22 @@
+<!--pages/news/news.wxml-->
+<xzs-header />
+
+<view class="content">
+  <xzs-news-item
+    wx:for="{{ news }}"
+    wx:key="_id"
+    id="{{ item._id }}"
+    author="{{ item.author }}"
+    img="{{ item.img }}"
+    title="{{ item.title }}"
+    time="{{ item.time }}"
+    view-count="{{ item.viewCount }}"
+  />
+
+  
+  <view class="loading" wx:if="{{ loading }}">
+    <van-loading type="spinner">加载中...</van-loading>
+  </view>
+  <view class="tip" wx:if="{{loadAll}}">- 我是有底线的喔 -</view>
+</view>
+
