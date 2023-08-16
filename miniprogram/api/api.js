@@ -17,3 +17,9 @@ export const apiGetNewsDetail = (params) => request({
   method: 'POST',
   data: params
 })
+
+export const apiGetProductList = (params) => request({
+  url: '/product/getlist',
+  method: 'POST',
+  data: params
+}) 

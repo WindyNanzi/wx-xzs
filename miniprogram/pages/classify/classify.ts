@@ -1,4 +1,4 @@
-import { apiGetNavList } from "../../api/api"
+import { apiGetNavList, apiGetProductList } from "../../api/api"
 
 // pages/classify/classify.ts
 Page({
@@ -9,7 +9,11 @@ Page({
   data: {
     navActive: 0,
     themeColor: '',
-    navs: []
+    navs: [],
+    products: [],
+    size: 0,
+    noMore: false,
+    loading: false,
   },
 
   /**
@@ -21,19 +25,58 @@ Page({
       themeColor: app.globalData.theme.color
     })
 
-    this.loadNavList()
+    this.loadNavList().then(() => {
+      this.loadProductList()
+    })
   },
 
   loadNavList() {
-    apiGetNavList().then((res: any) => {
+    return apiGetNavList().then((res: any) => {
       this.setData({
         navs: res.data
       })
     })
   },
 
+  loadProductList() {
+    const navid = (this.data.navs.find((_: any, index: number) => index === this.data.navActive) as any)?._id
+
+    if(this.data.noMore) {
+      return
+    }
+    
+    this.setData({ loading: true })
+    apiGetProductList({
+      navid,
+      limit: 6,
+      size: this.data.size,
+    }).then((res: any) => {
+      const list = res.data
+      const newList = [...this.data.products, ...list] as never[]
+      const size = this.data.size + newList.length
+      const noMore = list.length < 6
+      this.setData({
+        products: newList,
+        size,
+        noMore
+      })
+    }).finally(() => {
+      this.setData({ loading: false })
+    })
+  },
+  clearProductStatus() {
+    this.setData({
+      products: [],
+      size: 0,
+      noMore: false,
+    })
+  },
   onTabChange(item: any) {
-    console.log(item.detail)
+    this.clearProductStatus()
+    this.setData({
+      navActive: item.detail.index
+    })
+    this.loadProductList()
   },
 
   /**
@@ -75,7 +118,7 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom() {
-
+    this.loadProductList()
   },
 
   /**

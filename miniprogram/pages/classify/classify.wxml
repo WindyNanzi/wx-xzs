@@ -22,3 +22,13 @@
   
   </van-tab>
 </van-tabs>
+
+<view class="content">
+  <xzs-product 
+    class="product-item"
+    wx:for="{{ products }}"
+    wx:key="_id"
+    item="{{ item }}"
+  />
+</view>
+<xzs-list-bottom noMore="{{ noMore }}" loading="{{ loading }}"  />
