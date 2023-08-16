@@ -1,0 +1,7 @@
+<!--components/xzs-list-bottom/xzs-list-bottom.wxml-->
+<view class="list-bottom">
+  <view class="loading" wx:if="{{ loading }}">
+    <van-loading type="spinner">加载中...</van-loading>
+  </view>
+  <view class="tip" wx:if="{{ noMore }}">- 我是有底线的喔 -</view>
+</view>

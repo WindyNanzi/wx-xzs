@@ -10,7 +10,7 @@ Page({
   data: {
     size: 0,
     news: [],
-    loadAll: false,
+    noMore: false,
     loading: false,
   },
 
@@ -57,7 +57,7 @@ Page({
       loading: true,
       news: [],
       size: 0,
-      loadAll: false,
+      noMore: false,
     })
 
     this.loadList()
@@ -81,7 +81,7 @@ Page({
 
   },
   loadList() {
-    if(this.data.loadAll) {
+    if(this.data.noMore) {
       return
     }
 
@@ -108,7 +108,7 @@ Page({
 
       if(list.length < 8) {
         this.setData({
-          loadAll: true
+          noMore: true
         })
       }
 

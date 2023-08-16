@@ -13,10 +13,6 @@
     view-count="{{ item.viewCount }}"
   />
 
-  
-  <view class="loading" wx:if="{{ loading }}">
-    <van-loading type="spinner">加载中...</van-loading>
-  </view>
-  <view class="tip" wx:if="{{loadAll}}">- 我是有底线的喔 -</view>
+  <xzs-list-bottom noMore="{{ noMore }}" loading="{{ loading }}"  />
 </view>
 
