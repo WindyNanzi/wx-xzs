@@ -23,3 +23,10 @@ export const apiGetProductList = (params) => request({
   method: 'POST',
   data: params
 }) 
+
+
+export const apiGetProductDetail = (params) => request({
+  url: '/product/detail',
+  method: 'POST',
+  data: params
+})

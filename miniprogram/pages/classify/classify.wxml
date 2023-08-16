@@ -29,6 +29,8 @@
     wx:for="{{ products }}"
     wx:key="_id"
     item="{{ item }}"
+    capture-bind:tap="gotoProductDetail"
+    data-id="{{ item._id}}"
   />
 </view>
 <xzs-list-bottom noMore="{{ noMore }}" loading="{{ loading }}"  />
