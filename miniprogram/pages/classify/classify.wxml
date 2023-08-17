@@ -33,3 +33,5 @@
   />
 </view>
 <xzs-list-bottom noMore="{{ noMore }}" loading="{{ loading }}"  />
+
+<xzs-footer />
