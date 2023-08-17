@@ -14,6 +14,17 @@ export function request(params){
       data: dataObj,
       header: headerObj,
       success: res => {
+        if(res.data.error) {
+          wx.showToast({
+            title: res.data.error.message,
+            icon:"error",
+            duration: 1000
+          })
+          reject(res.data)
+
+          return
+        }
+
         if(res.data.errCode!=0){
           reject(res.data);
           wx.showToast({
@@ -23,6 +34,8 @@ export function request(params){
           })
           return;
         }
+
+        
         resolve(res.data)
       },
       fail: err => {
