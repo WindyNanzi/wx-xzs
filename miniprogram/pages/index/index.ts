@@ -75,7 +75,13 @@ Page({
   
   loadNavList() {
     apiGetNavList().then(res => {
-      const list = res.data
+      const list = res.data.map((item: any) => {
+        const url = `/pages/classify/classify?product=${item._id}`
+        return {
+          ...item,
+          url
+        }
+      })
       this.setData({
         navItems: list
       })

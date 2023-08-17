@@ -21,7 +21,9 @@
       class="item" 
       wx:for="{{ navItems }}" 
       wx:key="_id" 
-      url="{{ item.url }}">
+      url="{{ item.url }}"
+      open-type="reLaunch"
+    >
       <view class="picbox">
         <image src="{{ item.icon }}" mode="heightFix" />
       </view>

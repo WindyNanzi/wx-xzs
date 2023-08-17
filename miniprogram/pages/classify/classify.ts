@@ -19,13 +19,26 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad() {
+  onLoad(option: any) {
     const app = getApp()
     this.setData({
       themeColor: app.globalData.theme.color
     })
 
+    
+
     this.loadNavList().then(() => {
+      const product = option.product
+      if(product) {
+        const active = this.data.navs.findIndex((item: any) => {
+          return item._id === product
+        })
+
+        this.setData({
+          navActive: active
+        })
+      }
+
       this.loadProductList()
     })
   },
